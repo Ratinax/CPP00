@@ -6,7 +6,7 @@
 /*   By: tibernot <tibernot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:22:07 by tibernot          #+#    #+#             */
-/*   Updated: 2023/02/24 16:24:06 by tibernot         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:27:24 by tibernot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,13 @@ void	PhoneBook::search(void)
 		std::cout << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "If you want to get the infos of a user enter his First Name : ";
-	while (1)
-	{
-		std::getline(std::cin, line);
-		if (std::cin.eof())
-			return ;
-	}
+	std::cout << "If you want to get the infos of a user enter his index : ";
+	std::getline(std::cin, line);
+	if (std::cin.eof())
+		return ;
+	if ((line != "") && (line.length() == 1 && line >= "0" && line <= "7" && static_cast<int>(line[0] - 48) < _contactInd))
+		std::cout << _contact[static_cast<int>(line[0] - 48)];
+	else
+		std::cout << "Sorry I don't have this index in my database" << std::endl;
 }
 

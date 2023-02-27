@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tibernot <tibernot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 11:04:30 by tibernot          #+#    #+#             */
-/*   Updated: 2023/02/27 10:26:59 by tibernot         ###   ########.fr       */
+/*   Created: 2023/02/24 10:53:01 by tibernot          #+#    #+#             */
+/*   Updated: 2023/02/24 11:02:15 by tibernot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+#include <iostream>
 
-int main(void)
+int main(int argc, char **argv)
 {
-	PhoneBook	repertory;
-	std::string	line;
-
-	while (1)
-	{
-		std::cout << "> ";
-		std::getline(std::cin, line);
-		if (std::cin.eof())
-			return (0);
-		if (line == "ADD")
-			repertory.add();
-		else if(line == "SEARCH")
-			repertory.search();
-		else if (line == "EXIT")
-			return (0);
-	}
+	if (argc < 2)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	else
+		for (int i = 1; i < argc; i++)
+			for (int j = 0; argv[i][j]; j++)
+				std::cout << static_cast<char>(std::toupper(argv[i][j]));
+	std::cout << std::endl;
+	return (0);
 }

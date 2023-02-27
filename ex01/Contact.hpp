@@ -29,4 +29,6 @@ class Contact
 		Contact(void);
 		~Contact(void);
 };
+
+std::ostream	&operator<<(std::ostream &out, Contact const contact);
 #endif

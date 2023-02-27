@@ -6,7 +6,7 @@
 /*   By: tibernot <tibernot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:54:49 by tibernot          #+#    #+#             */
-/*   Updated: 2023/02/24 16:02:18 by tibernot         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:22:16 by tibernot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,18 @@ std::string	Contact::getPhoneNumber(void)
 {
 	return(_phoneNumber);
 }
+
 std::string	Contact::getDarkestSecret(void)
 {
 	return(_darkestSecret);
+}
+
+std::ostream	&operator<<(std::ostream &out, Contact contact)
+{
+	out << "First name :" << contact.getFirstName() << std::endl;
+	out << "Last name :" << contact.getLastName() << std::endl;
+	out << "Nick name :" << contact.getNickName() << std::endl;
+	out << "Phone number :" << contact.getPhoneNumber() << std::endl;
+	out << "Darkest secret :" << contact.getDarkestSecret() << std::endl;
+	return (out);
 }
